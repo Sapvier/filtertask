@@ -5,18 +5,18 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import {Checkbox, FormControlLabel, FormGroup} from "@material-ui/core";
 
 
-const FilterItem = ({filter}) => {
+const FilterItem = ({filter, filHandler}) => {
     const [expanded, setExpanded] = useState(false);
     const [checked, setChecked] = useState(false)
-    const [filters, setFilters] = useState([])
 
     const handleChange = () => {
         setExpanded(prevState => !prevState);
     };
     const handleCheckChange = (event) => {
-        setFilters(prevState => [...prevState, event.target.value])
+        filHandler(event)
         setChecked(event.target.checked);
     };
+
 
     return (
         <div>
